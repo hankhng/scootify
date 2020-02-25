@@ -17,13 +17,13 @@
   </div>
 </div>
 
-<div class="main-container">
+<div class="d-block d-lg-flex">
 
-  <div class="cards">
+  <div class="cards flex-grow-1">
     <% @scooters.each do |scooter| %>
-    <%= link_to scooter_path(scooter) do %>
-    <div class="card" style="width: 18rem;">
-      <img src="https://source.unsplash.com/1600x900/?scooter"
+    <%= link_to scooter_path(scooter), class:"card-wrapper" do %>
+    <div class="card">
+      <img src="https://source.unsplash.com/1600x900/?scooter${<%=scooter.brand%>}&"
       class="card-img-top" alt="scooter-img">
       <div class="card-body">
         <h5 class="card-title"><%= scooter.brand %></h5>
