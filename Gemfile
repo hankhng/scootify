@@ -29,3 +29,9 @@ group :development, :test do
 end
 
 gem 'devise'
+# gem 'therubyracer'
+# gem 'omniauth'
+# gem 'omniauth-digitalocean'
+gem 'omniauth-facebook'
+
+
