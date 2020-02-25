@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    byebug
     @booking = Booking.new(booking_params)
     if @booking.valid?
       @booking.save
