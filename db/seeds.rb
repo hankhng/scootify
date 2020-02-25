@@ -103,3 +103,4 @@ USERS[:owners].each do |owner_info|
 end
 
 puts "seeds succesfully"
+

@@ -10,3 +10,5 @@ class Scooter < ApplicationRecord
   validates :address, presence: true
   validates :license_type, presence: true
 end
+
+#
