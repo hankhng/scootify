@@ -1,11 +1,37 @@
 <!-- app/views/scooter/show.html.erb -->
-  <ul>
-    <li><h2><%=@scooter.brand %></h2></li>
-    <li><p><%= @scooter.model %></p></li>
-    <li><p><%= @scooter.transmission %></p></li>
-    <li><p><%= @scooter.year %></p></li>
-    <li><p><%= @scooter.price_per_day %></p></li>
-    <li><p><%= @scooter.address %></p></li>
-    <li><p><%= @scooter.license_type %></p></li>
-    <li><p><%= @scooter.owner_id %></p></li>
-  </ul>
+<div><%= link_to "Go Back", "/", class: "btn btn-flat" %></div>
+
+<div class="container">
+  <div class="row show-headers">
+    <li><h1><%=@scooter.brand %></h1></li>
+    <li><h3>Model: <%= @scooter.model %></h3></li>
+  </div>
+
+  <div class="row show-details">
+    <ul>
+      <li><p><%= @scooter.transmission %></p></li>
+      <li><p><%= @scooter.year %></p></li>
+      <li><p><%= @scooter.license_type %></p></li>
+      <li><p><strong>$<%= @scooter.price_per_day %>,-</strong> / DAY</p></li>
+    </ul>
+  </div>
+
+  <div class="owner-profile">
+    <p><%= @scooter.owner.first_name %></p>
+    <p> TBD owner avatar </p>
+  </div>
+
+  <div class="row booking-button">
+    <a><%= link_to "Book this scooter now", '#', class:"btn-small btn-primary px-2" %></a>
+  </div>
+
+  <div class="row show-location-map">
+    <%= @scooter.address %>
+  </div>
+</div>
+
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 my-5">
+      <div class="card"> -->
