@@ -75,7 +75,7 @@ USERS[:owners].each do |owner_info|
     scooter.model = MODEL[scooter.brand.to_sym].sample
     scooter.license_type = LICENSE_TYPE.sample
     scooter.year = rand(2000..2020)
-    scooter.price_per_day = rand(500..1000)
+    scooter.price_per_day = rand(500..2000)
     scooter.owner = owner
     scooter.save!
 
@@ -92,7 +92,7 @@ USERS[:owners].each do |owner_info|
       booking.end_date = booking.start_date + rand(1..20).days
       booking.scooter = scooter
       # byebug
-      booking.booking_price = scooter.price_per_day * (booking.end_date - booking.start_date).to_i
+      booking.booking_price = scooter.price_per_day * TimeDifference.between(booking.start_date, booking.end_date).in_days
       booking.renter = User.find_by(email: USERS[:renters].sample[:email])
       booking.save!
       # review = Review.new
