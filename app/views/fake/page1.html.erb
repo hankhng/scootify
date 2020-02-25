@@ -1,14 +1,11 @@
-<main>
-  <h1><span class="fontawesome-plane"></span> Scootify</h1>
-  <h2>Select your ride dates below</h2>
-  <div class="input-daterange input-group" id="flight-datepicker">
-    <div class="form-item">
-      <label>Depart on</label><span class="fontawesome-calendar"></span>
-      <input class="input-sm form-control" type="text" id="start-date" name="start" placeholder="Select depart date" data-date-format="DD, MM d"/><span class="date-text date-depart"></span>
-    </div>
-    <div class="form-item">
-      <label>Return on</label><span class="fontawesome-calendar"></span>
-      <input class="input-sm form-control" type="text" id="end-date" name="end" placeholder="Select return date" data-date-format="DD, MM d"/><span class="date-text date-return"></span>
-    </div>
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Scootify date picker</h2>
+
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :date_range, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%#= f.input :ends_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
   </div>
-</main>
+</div>
