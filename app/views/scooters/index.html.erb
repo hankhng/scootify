@@ -1,13 +1,19 @@
 <!-- app/views/scooters/index.html.erb -->
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1538895490524-0ded232a96d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
-  <div class="container">
-    <h1>Lets Scoot! </h1>
-    <p>
-      <span id="banner-typed-text"></span>
-    </p>
-<!--     <p> Tour the city as a local. Your scooter in 3, 2, 1 ...</p>
- -->    <a class="btn btn-primary" href="#" >Rent your bike now</a>
+  <div class="container d-flex justify-content-around">
+    <div class="w-25">
+      <h1>Lets Scoot! </h1>
+      <p>
+        <span id="banner-typed-text"></span>
+      </p>
+    </div>
+      <!-- <a class="btn btn-primary" href="#" >Search</a> -->
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Try 'Palermo'" aria-label="Search">
+        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    <div></div>
   </div>
 </div>
 
@@ -15,16 +21,18 @@
 
   <div class="cards">
     <% @scooters.each do |scooter| %>
+    <%= link_to scooter_path(scooter) do %>
     <div class="card" style="width: 18rem;">
-      <img src="https://images.unsplash.com/photo-1581598681059-18f5871e1d48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+      <img src="https://source.unsplash.com/1600x900/?scooter"
+      class="card-img-top" alt="scooter-img">
       <div class="card-body">
         <h5 class="card-title"><%= scooter.brand %></h5>
         <p class="card-text"><%= scooter.model %></p>
         <p class="card-text"><%= scooter.transmission %></p>
-        <p class="card-text"><%= scooter.price_per_day %></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text">$<%= scooter.price_per_day %></p>
       </div>
     </div>
+    <% end %>
     <% end %>
   </div>
 
