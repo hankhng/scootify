@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :scooters
-  resources :bookings, only: [:index, :create, :show, :new]
+  root to: 'scooters#index'
+  resources :scooters do
+    resources :bookings, only: [:index, :create, :show, :new]
+  end
   devise_for :users
   # , :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  root to: 'scooters#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

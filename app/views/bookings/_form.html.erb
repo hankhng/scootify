@@ -6,12 +6,8 @@
 
   <div class="form-inputs">
 
-    <h2>Scootify date picker</h2>
-
-    <%= simple_form_for :search, method: "get" do |f| %>
-    <%= f.input :date_range, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%#= f.input :ends_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <% end %>
+    <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%#= f.input :end_date, as: :datetime, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :renter_id %>
     <%= f.input :scooter_id %>
 
@@ -20,7 +16,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Create booking", class: "btn btn-primary" %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
   <% end %>
 

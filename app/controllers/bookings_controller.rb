@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
 
     if @booking.valid?
       @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to @booking, notice: 'Booking successfully completed.'
     else
       render :new
     end
@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
 
 
   def booking_params
-    params.require(:booking).permit(:renter_id, :scooter_id, :start_date, :end_date, :booking_price, :comment)
+    params.require(:booking).permit(:renter_id, :scooter_id, :date, :booking_price, :comment)
   end
 end
 
