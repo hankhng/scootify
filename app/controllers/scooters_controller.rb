@@ -62,7 +62,6 @@ class ScootersController < ApplicationController
     def set_scooter
       @scooter = Scooter.find(params[:id])
       authorize @scooter
-
     end
 
     # Only allow a trusted parameter "white list" through.
