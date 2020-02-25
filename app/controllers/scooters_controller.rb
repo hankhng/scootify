@@ -25,10 +25,12 @@ class ScootersController < ApplicationController
 
   # POST /scooters
   def create
-
     @scooter = Scooter.new(scooter_params)
+    @scooter.owner = current_user
 
-    if @scooter.save
+     # raise
+    if @scooter.valid?
+      @scooter.save
       redirect_to @scooter, notice: 'scooter was successfully created.'
     else
       render :new
