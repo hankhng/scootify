@@ -1,5 +1,15 @@
 <h1>My bookings</h1>
 
-<% @bookings.each do |booking| %>
-<%= booking %>
-<% end %>
+<div class="container">
+  <% @bookings.each do |booking| %>
+  <ul>
+    <li><h2>Scooter ID: <%= booking.scooter_id %></h2></li>
+    <li><h2>Renter ID: <%= booking.renter_id %></h2></li>
+    <li><p><%= booking.start_date %></p></li>
+    <li><p><%= booking.end_date %></p></li>
+    <li><p><%= booking.bookings_price %></p></li>
+  </ul>
+  <% end %>
+</div>
+
+
