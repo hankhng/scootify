@@ -3,7 +3,10 @@ class ScootersController < ApplicationController
 
 # GET /scooters
   def index
-    @scooters = Scooter.all
+    # @scooters = Scooter.all
+    @scooters = policy_scope(Scooter).order(created_at: :desc)
+
+
     # @category = params[:category]
     # @scooters2 = @scooters.where(category: @category)
   end
@@ -16,6 +19,7 @@ class ScootersController < ApplicationController
   # GET /scooters/new
   def new
     @scooter = Scooter.new
+    authorize @scooter
   end
 
 
@@ -26,6 +30,7 @@ class ScootersController < ApplicationController
   # POST /scooters
   def create
     @scooter = Scooter.new(scooter_params)
+    authorize @scooter
     @scooter.owner = current_user
 
      # raise
@@ -56,6 +61,8 @@ class ScootersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_scooter
       @scooter = Scooter.find(params[:id])
+      authorize @scooter
+
     end
 
     # Only allow a trusted parameter "white list" through.
