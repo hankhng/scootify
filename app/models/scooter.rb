@@ -4,9 +4,11 @@ class Scooter < ApplicationRecord
 
   validates :brand, presence: true
   validates :model, presence: true
-  validates :transmission, presence: true, inclusion: { in: %w(manual automatic)}
+  validates :transmission, presence: true
   validates :year, presence: true
   validates :price_per_day, presence: true
   validates :address, presence: true
   validates :license_type, presence: true
 end
+
+# , inclusion: { in: %w(manual automatic)}
