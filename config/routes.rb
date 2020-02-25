@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'fake/page1'
-  get 'fake/page2'
-  get 'fake/page3'
-  get 'fake/page4'
   resources :scooters
   resources :bookings, only: [:index, :create, :show, :new]
   devise_for :users
