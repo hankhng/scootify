@@ -33,5 +33,5 @@ gem 'devise'
 # gem 'omniauth'
 # gem 'omniauth-digitalocean'
 gem 'omniauth-facebook'
-
-
+gem 'time_difference'
+gem 'pundit'
