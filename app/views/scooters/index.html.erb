@@ -23,8 +23,11 @@
     <% @scooters.each do |scooter| %>
     <%= link_to scooter_path(scooter), class:"card-wrapper" do %>
     <div class="card">
-      <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%>}"
-      class="card-img-top" alt="scooter-img">
+      <% if scooter.photo.attached? %>
+        <%= cl_image_tag scooter.photo.key, class:"card-img-top :width=>70 :height=>53 :crop=>'scale'"%>
+      <% else %>
+        <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%><%=scooter.model%>}"class="card-img-top" alt="scooter-img">
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= scooter.brand %></h5>
         <p class="card-text"><%= scooter.model %></p>
