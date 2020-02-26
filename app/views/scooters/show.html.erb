@@ -1,11 +1,14 @@
 <!-- app/views/scooter/show.html.erb -->
-  <ul>
-    <li><h2><%=@scooter.brand %></h2></li>
-    <li><p><%= @scooter.model %></p></li>
-    <li><p><%= @scooter.transmission %></p></li>
-    <li><p><%= @scooter.year %></p></li>
-    <li><p><%= @scooter.price_per_day %></p></li>
-    <li><p><%= @scooter.address %></p></li>
-    <li><p><%= @scooter.license_type %></p></li>
-    <li><p><%= @scooter.owner_id %></p></li>
-  </ul>
+<h1>HELLO</h1>
+<ul>
+  <li><h2><%=@scooter.brand %></h2></li>
+  <li><p><%= @scooter.model %></p></li>
+  <li><p><%= @scooter.transmission %></p></li>
+  <li><p><%= @scooter.year %></p></li>
+  <li><p><%= @scooter.price_per_day %></p></li>
+  <li><p><%= @scooter.address %></p></li>
+  <li><p><%= @scooter.license_type %></p></li>
+  <li><p><%= @scooter.owner_id %></p></li>
+</ul>
+
+<div id="mapbox" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">MAP</div>

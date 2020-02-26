@@ -1,6 +1,9 @@
 import "bootstrap";
-// app/javascript/packs/application.js
-import { loadDynamicBannerText } from '../components/banner';
-loadDynamicBannerText();
-
+import 'mapbox-gl/dist/mapbox-gl.css';
 import "../plugins/flatpickr";
+import { initMapbox } from '../plugins/init_mapbox';
+import { loadDynamicBannerText } from '../components/banner';
+
+
+initMapbox();
+loadDynamicBannerText();
