@@ -18,6 +18,9 @@
             <%= link_to "Signup", "/users/sign_up", class: "nav-link" %>
           </li>
       <% end %>
+      <% if user_signed_in? %>
+        <%= link_to "Bookings", "/bookings", class: "nav-link" %>
+      <% end %>
       <li class="nav-item">
         <%= link_to "Renter", "#", class: "nav-link" %>
       </li>
