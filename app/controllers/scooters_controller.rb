@@ -4,10 +4,10 @@ class ScootersController < ApplicationController
   # GET /scooters
   def index
     # @scooters = Scooter.all
-    @scooters = policy_scope(Scooter).order(created_at: :desc)
+    @scooters = policy_scope(Scooter).geocoded.order(id: :desc)
     # @category = params[:category]
     # @scooters2 = @scooters.where(category: @category)
-    @scooters = Scooter.geocoded #returns scooters with coordinates
+    # @scooters = Scooter.geocoded #returns scooters with coordinates
     @markers = @scooters.map do |scooter|
       {
         lat: scooter.latitude,
