@@ -14,7 +14,7 @@ User.destroy_all
 SCOOTER = {
   brand: %w(Yamaha BMW Kawasaki Honda Suzuki KTM Ducati Aprilia Triumph),
   transmission: %w(manual automatic),
-  address: ["Av. Cnel. Niceto Vega #{rand(1..6000)}, C1414 BEF, Buenos Aires", "Av. Córdoba #{rand(1..6000)}, C1188 CABA", "Av. del Libertador #{rand(1..6000)}, C1425 CABA", "Av. Antártida Argentina #{rand(1..6000)}, Buenos Aires", "Marcelo Torcuato de Alvear #{rand(1..6000)}, C1058 AAQ, Buenos Aires", "Av. Santa Fe #{rand(1..6000)}, C1091 CABA", "#{rand(1..6000)} Bartolomé Mitre, CABA", "Av. Federico Lacroze #{rand(1..6000)}, C1426 CQH, Buenos Aires", "Av. Luis María Campos #{rand(1..6000)}, C1426 CABA", "Acevedo 865, Buenos Aires", "Murillo #{rand(1..6000)}, C1414 AFD, Buenos Aires", "Guardia Vieja #{rand(1..6000)}, C1192 AAW, Buenos Aires", "Paraguay #{rand(1..6000)}, C1425 CABA", "Guatemala #{rand(1..6000)}, C1425 CABA", "Malabia #{rand(1..6000)}, C1414 DMJ, Buenos Aires", "Jorge Luis Borges #{rand(1..6000)}, C1414 CABA", "Thames #{rand(1..6000)}, C1425 FIF, Buenos Aires"]
+  address: ["Av Niceto Vega #{rand(1..1000)}, Buenos Aires", "Av. Córdoba #{rand(1..1000)},CABA", "Av. del Libertador #{rand(1..1000)}, C1425 CABA", "Av. Antártida Argentina #{rand(1..1000)}, Buenos Aires", "Marcelo Torcuato de Alvear #{rand(1..1000)}, Buenos Aires", "Av. Santa Fe #{rand(1..1000)}, CABA", "#{rand(1..1000)} Bartolomé Mitre, CABA", "Av. Federico Lacroze #{rand(1..1000)}, Buenos Aires", "Av. Luis María Campos #{rand(1..1000)}, CABA", "Acevedo 865, Buenos Aires", "Murillo #{rand(1..1000)}, Buenos Aires", "Guardia Vieja #{rand(1..1000)}, Buenos Aires", "Paraguay #{rand(1..1000)}, CABA", "Guatemala #{rand(1..1000)}, CABA", "Malabia #{rand(1..1000)}, Buenos Aires", "Jorge Luis Borges #{rand(1..1000)}, CABA", "Thames #{rand(1..1000)}, Buenos Aires"]
 }
 
 MODEL = {
@@ -67,7 +67,7 @@ end
 USERS[:owners].each do |owner_info|
   owner = User.create!(owner_info)
 
-  5.times do
+  3.times do
     scooter = Scooter.new()
     scooter.brand = SCOOTER[:brand].sample
     scooter.transmission = SCOOTER[:transmission].sample
@@ -80,6 +80,7 @@ USERS[:owners].each do |owner_info|
     scooter.save!
 
     rand(5..10).times do
+      # n = 0
       booking = Booking.new()
       if Booking.last.nil?
         start_date = Date.today + rand(5..15).days
@@ -96,6 +97,8 @@ USERS[:owners].each do |owner_info|
       # booking.booking_price = (booking.end_date - booking.start_date).to_i
       booking.renter = User.find_by(email: USERS[:renters].sample[:email])
       booking.save!
+      # n += 1
+      # puts "creating booking #{n}"
       # review = Review.new
       # review.booking = booking
       # review.comment = COMMENT.sample
