@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'scooters#index', as: 'scooters'
+  root to: 'scooters#index'
   resources :scooters do
     resources :bookings, only: [:create, :new, :index]
   end
