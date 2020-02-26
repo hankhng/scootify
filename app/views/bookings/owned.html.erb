@@ -8,15 +8,12 @@
       <div class="card-product-infos">
 
         <div class="justify-content-between m-5 ">
-
             <h2>Scooter_id <%= booking.scooter_id %></h2>
             <h2>Renter_id <%= booking.renter_id %></h2>
             <p>Start Date: <%=booking.start_date.strftime("%F") %></p>
             <p>End Date: <%=booking.end_date.strftime("%F")%></p>
             <p>Total price: <strong>$<%= booking.booking_price %>-</strong></p>
-
         </div>
-
       </div>
     </div>
   <% end %>

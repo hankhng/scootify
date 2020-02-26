@@ -48,3 +48,16 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+
+// bookings page
+.card-product.card-booking {
+  height:100px
+}
+
+.card-product.card-booking img {
+  height: 100%;
+  width: 100px;
+  object-fit: cover;
+}
+
