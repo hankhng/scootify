@@ -8,8 +8,6 @@
       <h5 class="card-title">Card title</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <ul>
-        <li><strong>Renter id: </strong><%= @booking.renter_id %></li>
-        <li><strong>Scooter id: </strong><%= @booking.scooter_id %></li>
         <li><strong>Booking price: </strong><%= @booking.booking_price %><strong> ($)</strong></li>
         <li><strong>Start date: </strong><%= @booking.start_date %></li>
         <li><strong>End date: </strong><%= @booking.end_date %></li>
@@ -20,8 +18,21 @@
     </div>
   </div>
 
+
+  <div class="card-trip">
+<!--   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
+  <div class="card-trip-infos">
+    <div>
+      <h2>Booking confirmed!</h2>
+      <p>You are going to scoot on a <%= @booking.scooter.brand %></p>
+      p
+    </div>
+  </div>
+</div>
+
 </div>
 
 <%= link_to 'Back', scooters_path %>
 
 
+booking.scooter_id
