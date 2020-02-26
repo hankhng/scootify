@@ -5,6 +5,14 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def set_booking?
+    return true
+  end
+
+  def show?
+    return true
+  end
+
   def create?
     return true
   end
@@ -14,8 +22,12 @@ class BookingPolicy < ApplicationPolicy
 
   def update?
     record.user == user
-    # - record: the restaurant passed to the `authorize` method in controller
+    # - record: the booking passed to the `authorize` method in controller
     # - user:   the `current_user` signed in with Devise.
+  end
+
+  def owned?
+    return true
   end
 
   def destroy?
