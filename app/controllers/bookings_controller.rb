@@ -27,6 +27,11 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def owned
+    @bookings = current_user.bookings
+    authorize @bookings
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.

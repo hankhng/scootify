@@ -18,6 +18,10 @@ class BookingPolicy < ApplicationPolicy
     # - user:   the `current_user` signed in with Devise.
   end
 
+  def owned?
+    return true
+  end
+
   def destroy?
     record.user == user
   end
