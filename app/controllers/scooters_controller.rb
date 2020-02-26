@@ -83,7 +83,7 @@ class ScootersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def scooter_params
-      params.require(:scooter).permit(:brand, :model, :transmission, :year, :price_per_day, :address, :license_type)
+      params.require(:scooter).permit(:brand, :model, :transmission, :year, :price_per_day, :address, :license_type, :photo)
     end
 
   end
