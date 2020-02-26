@@ -2,16 +2,18 @@
   <h1>My Bookings</h1>
 
   <% @bookings.each do |booking| %>
-  <ul>
-    <div class="card-product">
-      <img src="https://source.unsplash.com/1600x900/?scooter"/>
-      <div class="card-product-infos">
-    <li><h2>Scooter ID: <%= booking.scooter_id %></h2></li>
-    <li><h2>Renter ID: <%= booking.renter_id %></h2></li>
-    <li><p>Start: <%= booking.start_date%></p></li>
-    <li><p>End: <%= booking.end_date%></p></li>
-    <li><p>Total price: <strong>$<%= booking.booking_price %>,-</strong></p></li>
-  </ul>
-
+    <div class="card-product card-booking">
+      <img src="https://source.unsplash.com/1600x900/?scooter&${<%=booking.scooter.brand%>}" class="booking-img"/>
+      <div class="card-product-infos d-flex justify-content-between">
+          <div>
+            <h2>Total price: $<%= booking.booking_price %>,-</h2><p>Start: <%= booking.start_date%> - End: <%= booking.end_date%></p>
+            <p><strong><%= booking.scooter.brand %> - <%= booking.scooter.model %></strong></p>
+            <p>Rented by: <strong><%= booking.renter.first_name %></strong></p>
+          </div>
+        <div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
+
