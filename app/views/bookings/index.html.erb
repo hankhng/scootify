@@ -1,15 +1,16 @@
-<h1>My bookings</h1>
-
 <div class="container">
+  <h1>My Bookings</h1>
+
   <% @bookings.each do |booking| %>
-  <ul>
-    <li><h2>Scooter ID: <%= booking.scooter_id %></h2></li>
-    <li><h2>Renter ID: <%= booking.renter_id %></h2></li>
-    <li><p>Start: <%= booking.start_date.strftime("%F") %></p></li>
-    <li><p>End: <%= booking.end_date.strftime("%F") %></p></li>
-    <li><p>Total price: <strong>$<%= booking.booking_price %>,-</strong></p></li>
-  </ul>
+    <div class="card-product">
+      <img src="https://source.unsplash.com/1600x900/?scooter"/>
+      <div class="card-product-infos">
+        <h2>Scooter_id <%= booking.scooter_id %></h2>
+        <h2>Renter_id <%= booking.renter_id %></h2>
+        <p>Start Date: <%=booking.start_date.strftime("%F") %></p>
+        <p>End Date: <%=booking.end_date.strftime("%F")%></p>
+        <p>Total price: <strong>$<%= booking.booking_price %>,-</strong></p>
+      </div>
+    </div>
   <% end %>
 </div>
-
-
