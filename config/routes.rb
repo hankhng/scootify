@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'scooters#index'
+  root to: 'scooters#index', as: 'scooters'
   resources :scooters do
-    resources :bookings, only: [:create, :show, :new]
+    resources :bookings, only: [:create, :new, :index]
   end
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :show]
   devise_for :users
 
   get 'owned_scooters', to: 'scooters#owned', as: :owned_scooters
