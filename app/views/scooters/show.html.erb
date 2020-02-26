@@ -1,14 +1,67 @@
-<!-- app/views/scooter/show.html.erb -->
-<h1>HELLO</h1>
-<ul>
-  <li><h2><%=@scooter.brand %></h2></li>
-  <li><p><%= @scooter.model %></p></li>
-  <li><p><%= @scooter.transmission %></p></li>
-  <li><p><%= @scooter.year %></p></li>
-  <li><p><%= @scooter.price_per_day %></p></li>
-  <li><p><%= @scooter.address %></p></li>
-  <li><p><%= @scooter.license_type %></p></li>
-  <li><p><%= @scooter.owner_id %></p></li>
-</ul>
+<%= link_to "Go Back", "/", class: "btn btn-dark ml-2 mt-2" %>
 
-<div id="mapbox" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">MAP</div>
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <img src="https://images.unsplash.com/photo-1471466054146-e71bcc0d2bb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="img-fluid rounded min-vw-25 w-100 object-fit-cover object-fit-center">
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="d-flex justify-content-between mt-3">
+        <div class="">
+          <h2><%= @scooter.brand %> <%= @scooter.model %></h2>
+          <h6><span style="font-style: italic;"><%= @scooter.transmission %></span></h6>
+        </div>
+
+        <div class="">
+          <p class="m-0 text-white tag-price"><span class="font-weight-bold">$ <%= @scooter.price_per_day %></span> / day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+
+      <div class="d-flex align-items-center my-3">
+        <div class="flex-grow-1" style="height: 2px; background-color: lightgrey;"></div>
+        <p class="px-3 m-0" style="background-color: #f4f4f4; color: grey;">
+          Information about <%= @scooter.brand %> <%= @scooter.model %>
+        </p>
+        <div class="flex-grow-1" style="height: 2px; background-color: lightgrey;"></div>
+      </div>
+
+      <div class="text-center mb-5">
+        <p class="m-0">Year: <span class="font-weight-bold"><%= @scooter.year %></span></%> </p>
+        <p class="m-0">Required License: <span class="font-weight-bold"><%= @scooter.license_type %></span></p>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center m-4">
+        <img src="https://avatars0.githubusercontent.com/u/30577676?s=460&v=4" class="avatar-large" />
+        <div class="ml-3">
+          <p class="m-0"><span style="color: grey; font-weight: bold; font-size: 12px;">Your Owner:</span></p>
+          <p class="m-0"><span class="font-weight-bold"><%= @scooter.owner.first_name %> <%= @scooter.owner.last_name %></span></%> </p>
+        </div>
+      </div>
+
+      <div class="flex-grow-1 mt-4" style="height: 2px; background-color: lightgrey;"></div>
+
+      <div class="text-center">
+        <a><%= link_to "Book now!", new_scooter_booking_path(@scooter), class:"btn btn-primary px-4 m-4" %></a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div id="mapbox" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">MAP</div>
+      <%= @scooter.address %>
+    </div>
+  </div>
+
+</div>
