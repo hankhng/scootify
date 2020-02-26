@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>My scooters</h1>
+  <h1>My owned scooters</h1>
 
   <% @scooters.each do |scooter| %>
     <div class="card-product">
@@ -14,9 +14,7 @@
           <p>license type: <%= scooter.license_type %></p>
         </div>
         <div>
-          <div">
-            <%= link_to "edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
-          </div>
+          <%= link_to "edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
         </div>
       </div>
     </div>

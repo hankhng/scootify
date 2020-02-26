@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.joins(scooter: :owner).where(scooters: { owner_id: user })
     end
   end
 

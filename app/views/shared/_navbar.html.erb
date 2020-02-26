@@ -19,13 +19,19 @@
       <% end %>
       <% if user_signed_in? %>
         <%= link_to "Bookings", "/bookings", class: "nav-link" %>
-        <%= link_to "Scooters", "/owned_scooters", class: "nav-link" %>
+        <%= link_to "Scooters", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+         <%= link_to "My Scooters", "/owned_scooters", class: "dropdown-item" %>
+         <%= link_to "Add Scooter", "/scooters/new", class: "dropdown-item" %>
+        </div>
       <% end %>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown ml-3">
+        <% if user_signed_in? %>
+          <%= current_user.email %>
+        <% end %>
         <%= image_tag "https://avatars0.githubusercontent.com/u/30577676?s=460&v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Profile", "#", class: "dropdown-item" %>
-          <%= link_to "Account", "#", class: "dropdown-item" %>
           <%= link_to "Logout", "/users/sign_out", method: :delete, class: "dropdown-item" %>
         </div>
       </li>
