@@ -4,16 +4,22 @@
   <% @scooters.each do |scooter| %>
     <div class="card-product">
       <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%>}"/>
-      <div class="card-product-infos">
-        <h2><%= scooter.brand %> - <%= scooter.model %></h2>
-        <p>transmission: <%= scooter.transmission %></p>
-        <p>year: <%= scooter.year %></p>
-        <p>$ per day: <%= scooter.price_per_day %></p>
-        <p>pick-up address: <%= scooter.address %></p>
-        <p>license type: <%= scooter.license_type %></p>
+      <div class="card-product-infos d-flex justify-content-between">
+        <div>
+          <h2><%= scooter.brand %> - <%= scooter.model %></h2>
+          <p>transmission: <%= scooter.transmission %></p>
+          <p>year: <%= scooter.year %></p>
+          <p>$ per day: <%= scooter.price_per_day %></p>
+          <p>pick-up address: <%= scooter.address %></p>
+          <p>license type: <%= scooter.license_type %></p>
+        </div>
+        <div>
+          <div">
+            <%= link_to "edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
-
 
