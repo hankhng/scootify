@@ -57,6 +57,11 @@ class ScootersController < ApplicationController
     redirect_to scooters_url, notice: 'scooter was successfully destroyed.'
   end
 
+  def owned
+    @scooters = current_user.scooters
+    authorize @scooters
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_scooter
