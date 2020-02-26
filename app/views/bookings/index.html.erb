@@ -5,8 +5,8 @@
   <ul>
     <li><h2>Scooter ID: <%= booking.scooter_id %></h2></li>
     <li><h2>Renter ID: <%= booking.renter_id %></h2></li>
-    <li><p>Start: <%= booking.start_date.strftime("%F") %></p></li>
-    <li><p>End: <%= booking.end_date.strftime("%F") %></p></li>
+    <li><p>Start: <%= booking.start_date%></p></li>
+    <li><p>End: <%= booking.end_date%></p></li>
     <li><p>Total price: <strong>$<%= booking.booking_price %>,-</strong></p></li>
   </ul>
   <% end %>

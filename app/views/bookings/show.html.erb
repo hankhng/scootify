@@ -1,8 +1,27 @@
 <h1>Bookings <%= @booking.id %></h1>
-  <ul>
-    <li><p>Booking date: <%= @booking.date %></p></li>
-    <li><p>Renter id: <%= @booking.renter_id %></p></li>
-    <li><p>Scooter id: <%= @booking.scooter_id %></p></li>
-    <li><p>Booking price: <%= @booking.booking_price %></p></li>
-    <li><p>Booking comment: <%= @booking.comment %></p></li>
-  </ul>
+
+<div class="container">
+
+  <div class="card" style="width: 18rem;">
+    <img src="https://images.unsplash.com/photo-1581598681059-18f5871e1d48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <ul>
+        <li><strong>Renter id: </strong><%= @booking.renter_id %></li>
+        <li><strong>Scooter id: </strong><%= @booking.scooter_id %></li>
+        <li><strong>Booking price: </strong><%= @booking.booking_price %><strong> ($)</strong></li>
+        <li><strong>Start date: </strong><%= @booking.start_date %></li>
+        <li><strong>End date: </strong><%= @booking.end_date %></li>
+        <li><strong>Booking created at: </strong><%= @booking.created_at %></li>
+        <li><strong>Booking last update: </strong><%= @booking.updated_at %></li>
+      </ul>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+</div>
+
+<%= link_to 'Back', bookings_path %>
+
+
