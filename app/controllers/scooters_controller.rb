@@ -1,19 +1,31 @@
 class ScootersController < ApplicationController
   before_action :set_scooter, only: [:show, :edit, :update, :destroy]
 
-# GET /scooters
+  # GET /scooters
   def index
     # @scooters = Scooter.all
     @scooters = policy_scope(Scooter).order(created_at: :desc)
-
-
     # @category = params[:category]
     # @scooters2 = @scooters.where(category: @category)
+    @scooters = Scooter.geocoded #returns scooters with coordinates
+    @markers = @scooters.map do |scooter|
+      {
+        lat: scooter.latitude,
+        lng: scooter.longitude
+      }
+    end
   end
 
   # GET /scooters/1
   def show
     # @scooter = Scooter.find(params[:id])
+     @scooters = Scooter.geocoded #returns scooters with coordinates
+     @markers = @scooters.map do |scooter|
+      {
+        lat: scooter.latitude,
+        lng: scooter.longitude
+      }
+    end
   end
 
   # GET /scooters/new
@@ -34,7 +46,7 @@ class ScootersController < ApplicationController
     @scooter.owner = current_user
 
      # raise
-    if @scooter.valid?
+     if @scooter.valid?
       @scooter.save
       redirect_to @scooter, notice: 'scooter was successfully created.'
     else
@@ -74,5 +86,5 @@ class ScootersController < ApplicationController
       params.require(:scooter).permit(:brand, :model, :transmission, :year, :price_per_day, :address, :license_type)
     end
 
-end
+  end
 
