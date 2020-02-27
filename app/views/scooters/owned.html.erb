@@ -18,18 +18,21 @@
          <% else %>
               <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%><%=scooter.model%>}"class="card-img-top" alt="scooter-img">
          <% end %>
-         <div class="card-product-infos d-flex justify-content-between w-100">
-          <div>
-            <h2><%= scooter.brand %> - <%= scooter.model %></h2>
-            <p>transmission: <%= scooter.transmission %></p>
-            <p>year: <%= scooter.year %></p>
-            <p>$ per day: <%= scooter.price_per_day %></p>
-            <p>pick-up address: <%= scooter.address %></p>
-            <p>license type: <%= scooter.license_type %></p>
-          </div>
-          <div>
-            <%= link_to "edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
-          </div>
+        <div class="card-product-infos d-flex justify-content-between w-100">
+        <div>
+          <h2><%= scooter.brand %> - <%= scooter.model %></h2>
+          <p>transmission: <%= scooter.transmission %></p>
+          <p>year: <%= scooter.year %></p>
+          <p>$ per day: <%= scooter.price_per_day %></p>
+          <p>pick-up address: <%= scooter.address %></p>
+          <p>license type: <%= scooter.license_type %></p>
+        </div>
+        <div>
+          <%= link_to "Edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
+        </div>
+         <div>
+          <%= link_to 'Delete', scooter_path(scooter), method: :delete, class:"btn btn-sm btn-outline-secondary ml-3", data: { confirm: 'Are you sure?' } %>
+        </div>
       </div>
     </div>
   <% end %>
