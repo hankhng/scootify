@@ -5,9 +5,19 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <!-- <img src="https://images.unsplash.com/photo-1471466054146-e71bcc0d2bb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="img-fluid rounded min-vw-25 w-100 object-fit-cover object-fit-center"> -->
+<<<<<<< HEAD
       <img src="https://source.unsplash.com/1600x900/?scooter&${<%=@scooter.brand%>&<%=@scooter.model%>}" class="img-fluid rounded min-vw-25 w-100 object-fit-cover object-fit-center">
+=======
+         <% if @scooter.photo.attached? %>
+              <%= cl_image_tag @scooter.photo.key, class:"card-img-top :width=>70 :height=>53 :crop=>'scale'"%>
+         <% else %>
+              <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%><%=scooter.model%>}"class="card-img-top" alt="scooter-img">
+         <% end %>
+>>>>>>> master
     </div>
   </div>
+
+
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">

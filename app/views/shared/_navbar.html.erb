@@ -18,11 +18,17 @@
           </li>
       <% end %>
       <% if user_signed_in? %>
-        <%= link_to "Bookings", "/bookings", class: "nav-link" %>
         <li class="nav-item  dropdown">
-          <%= link_to "Scooters", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+          <%= link_to "Renter", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <%= link_to "My Scooters", "/owned_scooters", class: "dropdown-item" %>
+           <%= link_to "Bookings", "/scooters/new", class: "dropdown-item" %>
+          </div>
+        </li>
+        <li class="nav-item  dropdown">
+          <%= link_to "Owner", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Earnings", "/bookings",class: "dropdown-item" %>
+           <%= link_to "Scooters", "/owned_scooters", class: "dropdown-item" %>
            <%= link_to "Add Scooter", "/scooters/new", class: "dropdown-item" %>
           </div>
         </li>
