@@ -20,21 +20,12 @@ class ScootersController < ApplicationController
 
   # GET /scooters/1
   def show
-<<<<<<< HEAD
     # @scooter = Scooter.find(params[:id])
      # @scooter = Scooter.geocoded #returns scooters with coordinates
      @marker = [{
         lat: @scooter.latitude,
         lng: @scooter.longitude,
       }]
-=======
-    @scooter = Scooter.find(params[:id])
-     # @scooters = Scooter.geocoded #returns scooters with coordinates
-     @markers = {
-        lat: @scooter.latitude,
-        lng: @scooter.longitude
-      }
->>>>>>> master
   end
 
   # GET /scooters/new
