@@ -60,7 +60,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <div id="mapbox" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">MAP</div>
+      <div id="mapbox" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <%= @scooter.address %>
     </div>
   </div>
