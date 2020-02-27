@@ -76,21 +76,30 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <h3>reviews</h3>
-
       <div class="notification">
         <div class="notification-content">
           <% @scooter.reviews.each do |review| %>
-          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar"/>
-          <p><small><strong><%= review.renter.first_name %></strong></small></p>
-          <p>* <%= review.rating %></p>
-          <p><%= review.comment %></p>
+          <div class="my-3 d-flex bg-white">
+            <div class="mx-3 py-3 text-center">
+              <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar"/>
+              <p class="m-0"><small><%= review.renter.first_name %></small></p>
+            </div>
+            <div class="d-flex flex-column flex-grow-1 justify-content-around py-3">
+              <p class="m-0">
+                <% 5.times do |num| %>
+                <i class="fa<%=review.rating < num ? 'r' : 's' %> fa-star text-warning"></i>
+                <% end %>
+              </p>
+              <p class="m-0"><%= review.comment %></p>
+            </div>
+          </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 
-<!-- closing div of container -->
+  <!-- closing div of container -->
 </div>
 
 
