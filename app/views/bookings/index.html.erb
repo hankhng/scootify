@@ -13,23 +13,26 @@
 
   <% @bookings.each do |booking| %>
   <div class="card-product booking">
-    <div style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg'); background-size: cover;" class="h-100 d-flex align-items-end">
-      <p class="m-0 text-center bg-light">booking id:<%= booking.id %></p>
+    <div style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg'); background-size: cover; width: 175px;" class="h-100 d-flex align-items-end">
+      <p class="m-0 w-100 text-center bg-light">booking id:<%= booking.id %></p>
     </div>
-    <div class="card-product-info w-100">
+    <div class="card-product-info scooter">
       <div class="d-flex justify-content-between">
-        <div class="ml-3">
-          <h2 class="my-2"><%= booking.scooter.brand %></h2>
-          <h2 class="my-2"><%= booking.scooter.model %></h2>
-          <h2 class="my-2"><%= booking.booking_price %></h2>
+        <div class="ml-4 d-flex flex-column justify-content-between h-100">
+          <div>
+            <h1 class="m-0"><%= booking.scooter.brand %></h1>
+            <h2 class="m-0 font-weight-lighter "><%= booking.scooter.model %></h2>
+          </div>
+          <h1 class="mt-2">$<%= booking.booking_price %></h1>
         </div>
-        <div>
-          <p class="m-0">period</p>
-          <h2 class="my-2"><%= booking.start_date.strftime("%e- %b") %></h2>
-          <h2 class="my-2"><%= booking.end_date.strftime("%e- %b")%></h2>
-        </div>
-        <div class="mr-3">
-          <p><%= booking.renter.first_name %></p>
+        <div class="bg-light mr-5">
+          <div>
+            <h2 class="my-2"><%= booking.start_date.strftime("%e- %b") %></h2>
+            <h2 class="my-2"><%= booking.end_date.strftime("%e- %b")%></h2>
+          </div>
+          <div class="text-center">
+            <a><%= link_to "Leave review!", new_scooter_review_path(booking.scooter), class:"btn btn-outline-secondary px-4 m-4" %></a>
+          </div>
         </div>
       </div>
     </div>
