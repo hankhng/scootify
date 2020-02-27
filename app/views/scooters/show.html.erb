@@ -5,9 +5,9 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <% if @scooter.photo.attached? %>
-      <%= cl_image_tag @scooter.photo.key, class:"card-img-top :width=>70 :height=>53 :crop=>'scale'"%>
+      <%= cl_image_tag @scooter.photo.key, class:"img-fluid rounded min-vw-25 w-100 object-fit-cover object-fit-center"%>
       <% else %>
-      <img src="https://source.unsplash.com/1600x900/?scooter&${<%=@scooter.brand%><%=@scooter.model%>}"class="card-img-top" alt="scooter-img">
+      <img src="https://source.unsplash.com/1600x900/?scooter&${<%=@scooter.brand%><%=@scooter.model%>}" class="img-fluid rounded min-vw-25 w-100 object-fit-cover object-fit-center" alt="scooter-img">
       <% end %>
     </div>
   </div>
@@ -16,7 +16,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <div class="d-flex justify-content-between mt-3">
+      <div class="d-flex justify-content-between align-items-center mt-3">
         <div class="">
           <h2><%= @scooter.brand %> <%= @scooter.model %></h2>
           <h6><span style="font-style: italic;"><%= @scooter.transmission %></span></h6>

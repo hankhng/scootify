@@ -35,6 +35,7 @@ LICENSE_TYPE = %w(A1 A2 A3)
 
 USERS = {
   owners: [
+    { first_name: "admin" , last_name: "admin", email: "admin@gmail.com" , password: 12345678, admin: true},
     { first_name: "Hernan" , last_name: "Kina", email: "hernan@gmail.com" , password: 12345678 },
     { first_name: "Thomas" , last_name: "Holder", email: "thomas@gmail.com" , password: 12345678 },
     { first_name: "Hank" , last_name: "Hng", email: "hank@gmail.com" , password: 12345678 },
