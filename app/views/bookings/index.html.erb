@@ -1,40 +1,23 @@
 <div class="container">
-  <% if @scooters.empty? %>
-  <h3 class="my-3">It looks like you don't have any scooters yet, <%= current_user.first_name%></h3>
-  <h3>Do you want to add a new scooter?</h3>
+  <% if @bookings.empty? %>
+  <h3 class="my-3">It looks like you don't have any bookings yet, <%= current_user.first_name%></h3>
+  <h3>Do you want to rent a scooter for your next trip?</h3>
 
   <div>
-    <%= link_to "Add new scooter", new_scooter_path, class:"btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Find scooter", scooters_path, class:"btn btn-sm btn-outline-secondary" %>
   </div>
 
   <% else %>
 
-  <h1>Earnings for Scooters I own</h1>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Booking #</th>
-        <th scope="col">Scooter</th>
-        <th scope="col">Total Price</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
-        <th scope="col">Renter</th>
-      </tr>
-    </thead>
+  <h1>My bookings</h1>
 
-    <tbody>
-     <% @bookings.each_with_index do |booking, index| %>
-     <tr class="<%= index.even? ? 'bg-light' : '' %>">
-      <th scope="row"><%= booking.id %></th>
-      <td><%= booking.scooter.brand %> - <%= booking.scooter.model %></td>
-      <td>$<%= booking.booking_price %>,-</td>
-      <td><%= booking.start_date%></td>
-      <td><%= booking.end_date%></td>
-      <td><%= booking.renter.first_name %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2>Product name</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+    </div>
+  </div>
 
-<% end %>
+  <% end %>
 </div>
