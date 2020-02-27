@@ -30,3 +30,14 @@
   padding:16px 0px;
 }
 
+.algolia-places {
+  width: 300px;
+  margin-right: 10px;
+  input#searchbox {
+    width: 100%;
+  }
+  span {
+    text-align: left;
+  }
+}
+

@@ -4,8 +4,13 @@ class ScootersController < ApplicationController
 
   # GET /scooters
   def index
+    if params[:destination].present?
+      @scooters = policy_scope(Scooter).near(params[:destination], 10)
+      @destination = params[:destination]
+    else
+      @scooters = policy_scope(Scooter)
+    end
     # @scooters = Scooter.all
-    @scooters = policy_scope(Scooter)
     # authorize @scooters
     # @category = params[:category]
     # @scooters2 = @scooters.where(category: @category)
