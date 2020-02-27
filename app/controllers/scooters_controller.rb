@@ -20,12 +20,12 @@ class ScootersController < ApplicationController
 
   # GET /scooters/1
   def show
-    @scooter = Scooter.find(params[:id])
-     # @scooters = Scooter.geocoded #returns scooters with coordinates
-     @markers = {
+    # @scooter = Scooter.find(params[:id])
+     # @scooter = Scooter.geocoded #returns scooters with coordinates
+     @marker = [{
         lat: @scooter.latitude,
-        lng: @scooter.longitude
-      }
+        lng: @scooter.longitude,
+      }]
   end
 
   # GET /scooters/new
@@ -64,8 +64,14 @@ class ScootersController < ApplicationController
 
   # DELETE /scooters/1
   def destroy
-    @scooter.destroy
-    redirect_to scooters_url, notice: 'scooter was successfully destroyed.'
+    if @scooter.bookings.count > 0
+      redirect_to owned_scooters_url, notice: 'You have dependant bookings that do not allow you to delete your bike.'
+    else
+      @scooter.destroy
+
+      redirect_to owned_scooters_url, notice: 'scooter was successfully destroyed.'
+    end
+
   end
 
   def owned

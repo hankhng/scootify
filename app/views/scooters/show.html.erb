@@ -23,12 +23,11 @@
         </div>
 
         <div class="">
-          <p class="m-0 text-white tag-price"><span class="font-weight-bold">$ <%= @scooter.price_per_day %></span> / day</p>
+          <p class="m-0 text-white info-box-blue"><span class="font-weight-bold">$ <%= @scooter.price_per_day %></span> / day</p>
         </div>
       </div>
     </div>
   </div>
-
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
@@ -65,9 +64,41 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <div id="mapbox" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      <%= @scooter.address %>
+      <div id="mapbox" style="width: 100%; height: 300px;" data-markers="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <span class="info-box-blue" style="color: white; position: absolute; bottom: 5px; left: 20px; "><%= @scooter.address %></span>
+    </div>
+  </div>
+  <br>
+
+  <!-- Reviews for scooter  -->
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <h3>reviews</h3>
+      <div class="notification">
+        <div class="notification-content">
+          <% @scooter.reviews.each do |review| %>
+          <div class="my-3 d-flex bg-white">
+            <div class="mx-3 py-3 text-center">
+              <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar"/>
+              <p class="m-0"><small><%= review.renter.first_name %></small></p>
+            </div>
+            <div class="d-flex flex-column flex-grow-1 justify-content-around py-3">
+              <p class="m-0">
+                <% 5.times do |num| %>
+                <i class="fa<%=review.rating < num ? 'r' : 's' %> fa-star text-warning"></i>
+                <% end %>
+              </p>
+              <p class="m-0"><%= review.comment %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- closing div of container -->
 </div>
+
+
