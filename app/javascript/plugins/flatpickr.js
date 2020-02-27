@@ -21,6 +21,8 @@ flatpickr("#range_start", {
       let totalPrice = days * pricePerDay
 
       let span = document.querySelector('#totalPrice');
+      let inputPrice = document.getElementById('booking_booking_price')
+      inputPrice.value = totalPrice
       span.innerText = ` $ ${totalPrice} for ${days} days`
     }
   }
