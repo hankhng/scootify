@@ -68,19 +68,29 @@
       <div id="mapbox" style="width: 100%; height: 300px;" data-markers="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <span class="info-box-blue" style="color: white; position: absolute; bottom: 5px; left: 20px; "><%= @scooter.address %></span>
     </div>
-    <br>
   </div>
+  <br>
 
   <!-- Reviews for scooter  -->
-  <h3>reviews</h3>
-  <ul>
-    <% @scooter.reviews.each do |review| %>
-      <li>
-        <%= review.comment %> (<%= review.rating %>)
-      </li>
-      <li>review by <strong><%= review.renter.first_name %></strong></li>
-    <% end %>
-  </ul>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <h3>reviews</h3>
+
+      <div class="notification">
+        <div class="notification-content">
+          <% @scooter.reviews.each do |review| %>
+          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar"/>
+          <p><small><strong><%= review.renter.first_name %></strong></small></p>
+          <p>* <%= review.rating %></p>
+          <p><%= review.comment %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- closing div of container -->
 </div>
 
 
