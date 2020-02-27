@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :scooters, foreign_key: "owner_id"
   has_many :bookings, foreign_key: "renter_id"
+  has_many :reviews, foreign_key: "renter_id"
 
   validates :first_name, presence: true
   validates :last_name, presence: true
