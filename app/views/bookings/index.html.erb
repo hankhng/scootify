@@ -23,15 +23,20 @@
             <h1 class="m-0"><%= booking.scooter.brand %></h1>
             <h2 class="m-0 font-weight-lighter "><%= booking.scooter.model %></h2>
           </div>
-          <h1 class="mt-2">$<%= booking.booking_price %></h1>
+          <h1 class="mt-4">$<%= booking.booking_price %></h1>
         </div>
-        <div class="bg-light mr-5">
+        <div class="mr-5">
           <div>
-            <h2 class="my-2"><%= booking.start_date.strftime("%e- %b") %></h2>
-            <h2 class="my-2"><%= booking.end_date.strftime("%e- %b")%></h2>
+            <h2 class="mb-1 p-1 text-center" style="border: 1px solid lightgrey; background-color:
+            <%= booking.start_date < Date.today ? "lightgrey" : "white" %>">
+            <i class="far fa-calendar-check"></i> <%= booking.start_date.strftime("%e- %b") %></h2>
+
+            <h2 class="mb-1 p-1 text-center" style="border: 1px solid lightgrey; background-color:
+            <%= booking.start_date < Date.today ? "lightgrey" : "white" %>">
+            <i class="far fa-calendar-minus"></i> <%= booking.end_date.strftime("%e- %b")%></h2>
           </div>
           <div class="text-center">
-            <a><%= link_to "Leave review!", new_scooter_review_path(booking.scooter), class:"btn btn-outline-secondary px-4 m-4" %></a>
+            <a><%= link_to "Leave review!", new_scooter_review_path(booking.scooter), class:"btn btn-outline-secondary px-4" %></a>
           </div>
         </div>
       </div>
