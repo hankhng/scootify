@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   def index
     # @bookings = Booking.all
     @bookings = policy_scope(Booking).order(start_date: :desc)
+    @scooters = current_user.scooters
   end
 
   def new
