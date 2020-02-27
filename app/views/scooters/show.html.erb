@@ -22,8 +22,13 @@
           <h6><span style="font-style: italic;"><%= @scooter.transmission %></span></h6>
         </div>
 
-        <div class="">
+        <div class="d-flex flex-column align-items-center">
           <p class="m-0 text-white info-box-blue"><span class="font-weight-bold">$ <%= @scooter.price_per_day %></span> / day</p>
+          <% ratings = [] %>
+          <% @scooter.reviews.each do |review| %>
+          <% ratings << review.rating %>
+          <% end %>
+          <span><i class="fas fa-star text-warning mt-3"></i> <%= average = ratings.sum / ratings.size.to_f %> (<%= ratings.size %>)</span>
         </div>
       </div>
     </div>
@@ -74,7 +79,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <h3>reviews</h3>
+      <h3>Reviews</h3>
       <div class="notification">
         <div class="notification-content">
           <% @scooter.reviews.each do |review| %>
