@@ -3,8 +3,12 @@
 
   <% @scooters.each do |scooter| %>
     <div class="card-product">
-      <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%>}"/>
-      <div class="card-product-infos d-flex justify-content-between">
+         <% if scooter.photo.attached? %>
+              <%= cl_image_tag scooter.photo.key, class:"card-img-top :width=>70 :height=>53 :crop=>'scale'"%>
+         <% else %>
+              <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%><%=scooter.model%>}"class="card-img-top" alt="scooter-img">
+         <% end %>
+        <div class="card-product-infos d-flex justify-content-between">
         <div>
           <h2><%= scooter.brand %> - <%= scooter.model %></h2>
           <p>transmission: <%= scooter.transmission %></p>
