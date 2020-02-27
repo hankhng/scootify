@@ -1,7 +1,7 @@
 class ScooterPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where.not(latitude: nil).order(id: :desc)
     end
   end
 
