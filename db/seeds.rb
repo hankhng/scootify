@@ -1,3 +1,4 @@
+require "faker"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -7,6 +8,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "destroy all seeds"
+Review.destroy_all
 Booking.destroy_all
 Scooter.destroy_all
 User.destroy_all
@@ -78,6 +80,16 @@ USERS[:owners].each do |owner_info|
     scooter.price_per_day = rand(10..150)
     scooter.owner = owner
     scooter.save!
+
+    5.times do
+      review = Review.new()
+      review.comment = Faker::Restaurant.review
+      review.rating = rand(1...10)
+      review.scooter = scooter
+      review.renter_id = rand(User.first.id..User.last.id)
+      review.save!
+      puts review.comment
+    end
 
     rand(5..10).times do
       # n = 0
