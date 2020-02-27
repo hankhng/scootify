@@ -1,6 +1,13 @@
-.info-box-blue {
+.price-box-green {
   padding: 2px 15px;
-  background-color: #167FFB;
+  border: 1px solid #E67E22;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.address-box-grey {
+  padding: 2px 15px;
+  background-color: #343a40;
   border-radius: 50px;
   font-size: 16px;
 }
@@ -15,4 +22,11 @@
 
 .object-fit-center {
   object-position: center;
+}
+
+.exit-button{
+  color: lightgrey;
+  &:hover {
+    color: darkgrey;
+  }
 }
