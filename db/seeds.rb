@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "destroy all seeds"
+Review.destroy_all
 Booking.destroy_all
 Scooter.destroy_all
 User.destroy_all
@@ -59,6 +60,21 @@ USERS = {
   ]
 }
 
+REVIEWS = {
+  comments: [
+'Awesome scooter, the highlight of my trip!',
+'Happy scooting-memories were made. Highly recommended!',
+'Scooting at it should be, what a great day.',
+'The owner was very friendly to explain me how to use the scooter.',
+'Owner gave me some advice on what scenic routes to take when riding downtown.',
+'Cool scooter, very well maintained.',
+'The best way to discover a city.',
+'Enjoyed the scoot around with my girlfriend.',
+'A safe and unqiue way to explore downtown.',
+'We had a great time scooting around!',
+'Great scooting experience. Only things was low fuel.'
+]
+}
 
 USERS[:renters].each do |renter|
   renter = User.create!(renter)
@@ -79,6 +95,15 @@ USERS[:owners].each do |owner_info|
     scooter.price_per_day = rand(10..150)
     scooter.owner = owner
     scooter.save!
+
+    5.times do
+      review = Review.new()
+      review.comment = REVIEWS[:comments].sample
+      review.rating = rand(1..5)
+      review.scooter = scooter
+      review.renter_id = rand(User.first.id..User.last.id)
+      review.save!
+    end
 
     rand(5..10).times do
       # n = 0

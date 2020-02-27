@@ -1,7 +1,9 @@
 class Scooter < ApplicationRecord
-
   belongs_to :owner, class_name: "User"
+
   has_many :bookings #, dependent: :destroy
+  has_many :reviews
+
   has_one_attached :photo # we might be willing to change it to many. and check how to define which one to show on prod cards that only allow one photo for the time being.
 
   validates :brand, presence: true
@@ -15,4 +17,3 @@ class Scooter < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 end
 
-#
