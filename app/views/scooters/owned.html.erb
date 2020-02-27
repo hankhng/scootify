@@ -1,4 +1,14 @@
 <div class="container">
+   <% if @scooters.empty? %>
+  <h3 class="my-3">It looks like you don't have any scooters yet, <%= current_user.first_name%></h3>
+  <h3>Do you want to add a new scooter?</h3>
+
+  <div>
+    <%= link_to "Add new scooter", new_scooter_path, class:"btn btn-sm btn-outline-secondary" %>
+  </div>
+
+
+  <% else %>
   <h1>My owned scooters</h1>
 
   <% @scooters.each do |scooter| %>
@@ -22,6 +32,7 @@
         </div>
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>
 
