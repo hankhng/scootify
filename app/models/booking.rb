@@ -7,7 +7,7 @@ class Booking < ApplicationRecord
   # validates :end_date, presence: true
   # validate :end_date_cannot_be_before_start_date
   # validate :start_date_cannot_be_in_the_past
-  validates :booking_price, presence: true
+  # validates :booking_price, presence: true
 
   # def start_date_cannot_be_in_the_past
   #   if !start_date.nil? && start_date < Date.today
