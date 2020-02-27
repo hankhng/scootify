@@ -21,7 +21,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.renter == user
     # - record: the booking passed to the `authorize` method in controller
     # - user:   the `current_user` signed in with Devise.
   end
@@ -31,6 +31,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.renter == user
   end
 end
