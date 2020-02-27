@@ -18,8 +18,8 @@ class ScooterPolicy < ApplicationPolicy
   end
 
   def update?
-    # record.user == user
-    return true
+    record.owner == user
+    # return true
     # - record: the scooter passed to the `authorize` method in controller
     # - user:   the `current_user` signed in with Devise.
   end
@@ -29,7 +29,8 @@ class ScooterPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.owner == user
+    # return true
   end
 
 end

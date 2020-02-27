@@ -18,8 +18,12 @@
           <p>license type: <%= scooter.license_type %></p>
         </div>
         <div>
-          <%= link_to "edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
+          <%= link_to "Edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
         </div>
+         <div>
+          <%= link_to 'Delete', scooter_path(scooter), method: :delete, class:"btn btn-sm btn-outline-secondary ml-3", data: { confirm: 'Are you sure?' } %>
+        </div>
+
       </div>
     </div>
   <% end %>

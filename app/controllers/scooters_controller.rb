@@ -64,8 +64,14 @@ class ScootersController < ApplicationController
 
   # DELETE /scooters/1
   def destroy
-    @scooter.destroy
-    redirect_to scooters_url, notice: 'scooter was successfully destroyed.'
+    if @scooter.bookings.count > 0
+      redirect_to owned_scooters_url, notice: 'You have dependant bookings that do not allow you to delete your bike.'
+    else
+      @scooter.destroy
+
+      redirect_to owned_scooters_url, notice: 'scooter was successfully destroyed.'
+    end
+
   end
 
   def owned
