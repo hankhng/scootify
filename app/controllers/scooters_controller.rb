@@ -19,13 +19,11 @@ class ScootersController < ApplicationController
   # GET /scooters/1
   def show
     # @scooter = Scooter.find(params[:id])
-     @scooters = Scooter.geocoded #returns scooters with coordinates
-     @markers = @scooters.map do |scooter|
-      {
-        lat: scooter.latitude,
-        lng: scooter.longitude
-      }
-    end
+     # @scooter = Scooter.geocoded #returns scooters with coordinates
+     @marker = [{
+        lat: @scooter.latitude,
+        lng: @scooter.longitude,
+      }]
   end
 
   # GET /scooters/new
