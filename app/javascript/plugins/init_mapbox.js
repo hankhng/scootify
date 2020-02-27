@@ -1,7 +1,7 @@
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('mapbox');
-
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
@@ -34,3 +34,4 @@ const initMapbox = () => {
 };
 
 export { initMapbox };
+
