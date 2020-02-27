@@ -1,27 +1,38 @@
 
 <div class="container">
-<h1>Bookings confirmation</h1>
+  <div class="text-center">
+    <h1>Bookings confirmation</h1>
+  </div>
   <div class="card-trip">
-<!--   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
-  <div class="card-trip-infos">
+    <div class="card-trip-infos">
+      <div class="text-center">
+        <%= image_tag "scooter.jpg", class: "avatar-large" %>
+        <h2 class="mt-2 mb-2">Your booking is confirmed</h2>
+        <p class="mb-3">You are going to scoot on a <%= @booking.scooter.brand %>!</p>
 
-    <div class="text-center">
-      <%= image_tag "scooter.jpg", class: "avatar-large" %>
-      <h2 class="mt-2 mb-2">Your booking is confirmed</h2>
-      <p class="mb-3">You are going to scoot on a <%= @booking.scooter.brand %>!</p>
-      <img src="https://source.unsplash.com/1600x900/?scooter&${<%=@booking.scooter.brand%><%=@booking.scooter.model%>}" class="img-fluid rounded w-50 height-50px object-fit-cover object-fit-center">
-      <h2 class="mt-4 mb-2"><%= @booking.scooter.brand %> - <%= @booking.scooter.model %></h2>
-      <p>tranmission: <%= @booking.scooter.transmission %></p>
-      <h2 class="mt-2 mb-2">From <%= @booking.start_date %> to <%= @booking.start_date%></h2>
-      <h2 class="mt-2 mb-4">Total Price: $<%= @booking.booking_price %></h2>
-      <h2 class="mt-2">Pick-up address:</h2><p> <%= @booking.scooter.address %></p>
-      <div id="mapbox" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>
+        <img src="https://source.unsplash.com/1600x900/?scooter&${<%=@booking.scooter.brand%><%=@booking.scooter.model%>}" class="img-fluid rounded w-50 height-50px object-fit-cover object-fit-center">
+
+        <h2 class="mt-4 mb-2"><%= @booking.scooter.brand %> - <%= @booking.scooter.model %></h2>
+        <p>tranmission: <%= @booking.scooter.transmission %></p>
+
+        <h2 class="mt-2 mb-4">From <%= @booking.start_date %> to <%= @booking.start_date%></h2>
+        <h2 class="mt-2 mb-4">Total Price: $<%= @booking.booking_price %></h2>
+        <h2 class="mt-2 mb-2">Pick-up address:</h2>
+        <p>
+          <span class="info-box-blue" style="color: white;"><%= @booking.scooter.address %></span>
+        </p>
+
+        <div class="text-center d-flex justify-content-center">
+          <div id="mapbox" style="width: 520px; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+
+        </div>
+        <div class="text-center d-flex justify-content-center">
+          <h2 class="mt-4 mb-6">
+            <%= link_to 'Book a new trip', scooters_path, class:"btn btn-lg btn-warning btn-block" %>
+          </h2>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-<%= link_to 'Book a new trip', scooters_path %>
-
-
