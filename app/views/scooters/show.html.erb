@@ -21,8 +21,13 @@
           <h6><span style="font-style: italic;"><%= @scooter.transmission %></span></h6>
         </div>
 
-        <div class="">
+        <div class="d-flex flex-column align-items-center">
           <p class="m-0 text-white info-box-blue"><span class="font-weight-bold">$ <%= @scooter.price_per_day %></span> / day</p>
+          <% ratings = [] %>
+          <% @scooter.reviews.each do |review| %>
+          <% ratings << review.rating %>
+          <% end %>
+          <span><i class="fas fa-star text-warning mt-3"></i> <%= average = ratings.sum / ratings.size.to_f %> (<%= ratings.size %>)</span>
         </div>
       </div>
     </div>
@@ -63,7 +68,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <div id="mapbox" style="width: 100%; height: 300px;" data-markers="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <div id="mapbox" class="rounded" style="width: 100%; height: 300px;" data-markers="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <span class="info-box-blue" style="color: white; position: absolute; bottom: 5px; left: 20px; "><%= @scooter.address %></span>
     </div>
   </div>
@@ -73,7 +78,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <h3>reviews</h3>
+      <h3>Reviews</h3>
       <div class="notification">
         <div class="notification-content">
           <% @scooter.reviews.each do |review| %>
