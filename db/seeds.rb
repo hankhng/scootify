@@ -1,4 +1,3 @@
-require "faker"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -63,22 +62,19 @@ USERS = {
 
 REVIEWS = {
   comments: [
-    'Awesome scooter, the highlight of my trip!',
-    'Happy scooting-memories were made. Highly recommended!',
-    'Scooting at it should be, what a great day.',
-    'The owner was very friendly to explain me how to use the scooter.',
-    'Owner was generous with advice on what scenic routes to take when riding downtown.',
-    'Cool scooter, very well maintained.',
-    'The best way to discover a city.',
-    'Enjoyed the scoot around with my girlfriend.',
-    'A safe and unqiue way to explore downtown.',
-    'We had a great time scooting around!',
-    'Great scooting experience. The only negative was the low fuel level when we picked up the scooter.',
-    'Don\'t miss out on this. Go scooting!!!',
-    'Exactly as listed on Scootify. Great experience.'
-  ]
+'Awesome scooter, the highlight of my trip!',
+'Happy scooting-memories were made. Highly recommended!',
+'Scooting at it should be, what a great day.',
+'The owner was very friendly to explain me how to use the scooter.',
+'Owner gave me some advice on what scenic routes to take when riding downtown.',
+'Cool scooter, very well maintained.',
+'The best way to discover a city.',
+'Enjoyed the scoot around with my girlfriend.',
+'A safe and unqiue way to explore downtown.',
+'We had a great time scooting around!',
+'Great scooting experience. Only things was low fuel.'
+]
 }
-
 
 USERS[:renters].each do |renter|
   renter = User.create!(renter)
@@ -103,11 +99,10 @@ USERS[:owners].each do |owner_info|
     5.times do
       review = Review.new()
       review.comment = REVIEWS[:comments].sample
-      review.rating = rand(2..5)
+      review.rating = rand(1..5)
       review.scooter = scooter
       review.renter_id = rand(User.first.id..User.last.id)
       review.save!
-      puts review.comment
     end
 
     rand(5..10).times do
