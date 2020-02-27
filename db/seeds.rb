@@ -22,9 +22,9 @@ MODEL = {
   Yamaha: %w(GT100 IT125 LS2 100 MG1T MX125 RX50 RD200),
   BMW: %w(K1200GT K1300R R75 R90S R100 R1100GS F650CS F800GT G310R G650GS),
   Kawasaki: %w(Z250SL Z250 Z750 Z800 Z1000 ZRX1200R ZZR250 ZZR400 ZZR600 ZZR1100),
-  Honda: %w(CN250 Elite Express Joker Juno Metropolitan Motocompo Reflex PCX125 Ruckus SFX50),
+  Honda: %w(CN250 Elite Express Joker Juno Motocompo Reflex PCX125 Ruckus SFX50),
   Suzuki: %w(DR125 DR200SE DR350 DR650 FM50 FR50 FR80 FX125 FXR150 FZ50),
-  KTM: %w(50SXMini 65SX 390series 450EXC 450Rally 500EXC 640Adventure 690Enduro 950Adventure 950SuperEnduroR),
+  KTM: %w(50SXMini 65SX 390series 450EXC 450Rally 500EXC ),
   Ducati: %w(65TL 65TS 98 125T 125TV 400SS 748 749 750GT 750 800SS),
   Aprilia: %w(RS4125 RS50 RS125 RS250 RSV250 RST1000),
   Triumph: %w(80 100 T110 800 955i 1050 Cub Daytona Explore Trail),
@@ -94,6 +94,12 @@ USERS[:owners].each do |owner_info|
     scooter.year = rand(2000..2020)
     scooter.price_per_day = rand(10..150)
     scooter.owner = owner
+    file = URI.open('https://source.unsplash.com/1600x900/?scooter')
+    scooter.photo.attach(io: file, filename: "#{scooter.model}.jpeg", content_type: 'image/png')
+
+
+
+
     scooter.save!
 
     5.times do

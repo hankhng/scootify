@@ -1,9 +1,10 @@
+<%= link_to scooters_path do %>
+<i class="fas fa-chevron-circle-left ml-3 mt-3 exit-button" style="font-size: 48px; color: lightgrey;"></i>
+<% end %>
+
 <div class="container">
-  <h1>New Scooter</h1>
+  <h1>Add a new Scooter</h1>
 </div>
 
 <%= render 'form', scooter: @scooter %>
 
-<div class="container">
-  <%= link_to 'Back', scooters_path %>
-</div>
