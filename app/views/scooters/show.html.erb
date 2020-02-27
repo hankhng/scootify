@@ -70,4 +70,30 @@
     </div>
   </div>
 
+  <!-- Reviews for scooter  -->
+  <div class="d-flex">
+  <div class="container-show">
+    <h3>Reviews</h3>
+  <ul>
+    <% @scooter.reviews.each do |review| %>
+      <li class="ingredient-name">
+        <%= review.comment %> (<%= review.rating %>)
+      </li>
+    <% end %>
+  </ul>
+  </div>
+
+  <div class="container-show">
+  <h3>Add a review</h3>
+    <%= simple_form_for [@scooter, @review] do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :rating %>
+      <%= f.submit "add review", class: "btn btn-warning" %>
+    <% end %>
+  </div>
 </div>
+
+
+</div>
+
+
