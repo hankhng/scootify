@@ -1,5 +1,17 @@
 <div class="container">
-  <h1>My owned scooters</h1>
+   <% if @scooters.empty? %>
+  <h3 class="my-3">It looks like you don't have any scooters yet, <%= current_user.first_name%></h3>
+  <h3>Do you want to add a new scooter?</h3>
+
+  <div>
+    <%= link_to "Add new scooter", new_scooter_path, class:"btn btn-sm btn-outline-secondary" %>
+  </div>
+
+
+  <% else %>
+  <div class="text-center">
+    <h1>My owned scooters</h1>
+  </div>
 
   <% @scooters.each do |scooter| %>
     <div class="card-product">
@@ -8,7 +20,7 @@
          <% else %>
               <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%><%=scooter.model%>}"class="card-img-top" alt="scooter-img">
          <% end %>
-        <div class="card-product-infos d-flex justify-content-between">
+        <div class="card-product-infos d-flex justify-content-between w-100">
         <div>
           <h2><%= scooter.brand %> - <%= scooter.model %></h2>
           <p>transmission: <%= scooter.transmission %></p>
@@ -19,13 +31,11 @@
         </div>
         <div>
           <%= link_to "Edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
-        </div>
-         <div>
           <%= link_to 'Delete', scooter_path(scooter), method: :delete, class:"btn btn-sm btn-outline-secondary ml-3", data: { confirm: 'Are you sure?' } %>
         </div>
-
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>
 

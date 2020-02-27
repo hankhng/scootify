@@ -2,7 +2,7 @@ import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "../plugins/flatpickr";
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-
+import "../components/price_calculator";
 import { initMapbox } from '../plugins/init_mapbox';
 import { loadDynamicBannerText } from '../components/banner';
 import { initAutocomplete } from '../plugins/init_autocomplete';

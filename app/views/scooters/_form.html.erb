@@ -7,16 +7,16 @@
   <div class="form-inputs">
     <%= f.input :brand %>
     <%= f.input :model %>
-    <%= f.input :transmission, collection: %w(manual automatic) %>
+    <%= f.input :transmission, as: :radio_buttons, collection: %w(manual automatic) %>
     <%= f.input :year %>
     <%= f.input :price_per_day %>
     <%= f.input :address %>
-    <%= f.input :license_type %>
+    <%= f.input :license_type, as: :radio_buttons, collection: %w(A1 A2 A3) %>
     <%= f.input :photo, as: :file %>
   </div>
 
-  <div class="form-actions btn btn-outline-secondary">
-    <%= f.button :submit %>
+  <div class="form-actions">
+    <%= f.button :submit, class:"btn btn-primary px-5" %>
   </div>
   <% end %>
 
