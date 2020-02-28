@@ -94,9 +94,14 @@ USERS[:owners].each do |owner_info|
     scooter.year = rand(2000..2020)
     scooter.price_per_day = rand(10..150)
     scooter.owner = owner
-    file = URI.open('https://source.unsplash.com/1600x900/?scooter')
+    file = URI.open("https://source.unsplash.com/1600x900/?scooter&#{scooter.brand}")
     scooter.photo.attach(io: file, filename: "#{rand(1..999)}.jpeg", content_type: 'image/png')
     scooter.save!
+
+
+
+
+
 
     4.times do
       review = Review.new()
