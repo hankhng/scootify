@@ -15,7 +15,7 @@ User.destroy_all
 SCOOTER = {
   brand: %w(Yamaha BMW Kawasaki Honda Suzuki KTM Ducati Aprilia Triumph),
   transmission: %w(manual automatic),
-  address: ["Av Niceto Vega #{rand(1..1000)}, Buenos Aires", "Av. Córdoba #{rand(1..1000)},CABA", "Av. del Libertador #{rand(1..1000)}, C1425 CABA", "Av. Antártida Argentina #{rand(1..1000)}, Buenos Aires", "Marcelo Torcuato de Alvear #{rand(1..1000)}, Buenos Aires", "Av. Santa Fe #{rand(1..1000)}, CABA", "#{rand(1..1000)} Bartolomé Mitre, CABA", "Av. Federico Lacroze #{rand(1..1000)}, Buenos Aires", "Av. Luis María Campos #{rand(1..1000)}, CABA", "Acevedo 865, Buenos Aires", "Murillo #{rand(1..1000)}, Buenos Aires", "Guardia Vieja #{rand(1..1000)}, Buenos Aires", "Paraguay #{rand(1..1000)}, CABA", "Guatemala #{rand(1..1000)}, CABA", "Malabia #{rand(1..1000)}, Buenos Aires", "Jorge Luis Borges #{rand(1..1000)}, CABA", "Thames #{rand(1..1000)}, Buenos Aires"]
+  address: ["Av Niceto Vega #{rand(1..1000)}, Buenos Aires", "Av. Córdoba #{rand(1..1000)},CABA", "Av. del Libertador #{rand(1..1000)}, C1425 CABA", "Av. Francisco Bilbao #{rand(1..1000)}, Buenos Aires", "Marcelo Torcuato de Alvear #{rand(1..1000)}, Buenos Aires", "Av. Santa Fe #{rand(1..1000)}, CABA", "#{rand(1..1000)} Bartolomé Mitre, CABA", "Av. Federico Lacroze #{rand(1..1000)}, Buenos Aires", "Av. Luis María Campos #{rand(1..1000)}, CABA", "Acevedo 865, Buenos Aires", "Murillo #{rand(1..1000)}, Buenos Aires", "Av. Juan Bautista Alberdi #{rand(1..1000)}, Buenos Aires", "Paraguay #{rand(1..1000)}, CABA", "Guatemala #{rand(1..1000)}, CABA", "Malabia #{rand(1..1000)}, Buenos Aires", "Jorge Luis Borges #{rand(1..1000)}, CABA", "Thames #{rand(1..1000)}, Buenos Aires"]
 }
 
 MODEL = {

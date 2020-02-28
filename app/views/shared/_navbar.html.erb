@@ -35,7 +35,7 @@
       <% end %>
       <li class="nav-item dropdown ml-3 d-flex">
         <% if user_signed_in? %>
-          <div><p class="m-2"><%= current_user.email %></p></div>
+          <div><p class="m-2 mr-4"><%= current_user.first_name.capitalize %></p></div>
           <%= image_tag "https://avatars0.githubusercontent.com/u/30577676?s=460&v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
          <%= image_tag "avatar.png", class: "avatar dropdown-toggle"%>
