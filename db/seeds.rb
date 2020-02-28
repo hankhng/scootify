@@ -15,7 +15,24 @@ User.destroy_all
 SCOOTER = {
   brand: %w(Yamaha BMW Kawasaki Honda Suzuki KTM Ducati Aprilia Triumph),
   transmission: %w(manual automatic),
-  address: ["Av Niceto Vega #{rand(1..1000)}, Buenos Aires", "Av. Córdoba #{rand(1..1000)},CABA", "Av. del Libertador #{rand(1..1000)}, C1425 CABA", "Av. Francisco Bilbao #{rand(1..1000)}, Buenos Aires", "Marcelo Torcuato de Alvear #{rand(1..1000)}, Buenos Aires", "Av. Santa Fe #{rand(1..1000)}, CABA", "#{rand(1..1000)} Bartolomé Mitre, CABA", "Av. Federico Lacroze #{rand(1..1000)}, Buenos Aires", "Av. Luis María Campos #{rand(1..1000)}, CABA", "Acevedo 865, Buenos Aires", "Murillo #{rand(1..1000)}, Buenos Aires", "Av. Juan Bautista Alberdi #{rand(1..1000)}, Buenos Aires", "Paraguay #{rand(1..1000)}, CABA", "Guatemala #{rand(1..1000)}, CABA", "Malabia #{rand(1..1000)}, Buenos Aires", "Jorge Luis Borges #{rand(1..1000)}, CABA", "Thames #{rand(1..1000)}, Buenos Aires"]
+  address: [
+    "Av Niceto Vega #{rand(1..1000)}, CABA, Buenos Aires",
+    "Av. Córdoba #{rand(1..1000)},CABA, Buenos Aires",
+    "Av. del Libertador #{rand(1..1000)}, C1425 CABA, Buenos Aires",
+    "Av. Antártida Argentina #{rand(1..1000)}, CABA, Buenos Aires",
+    "Marcelo Torcuato de Alvear #{rand(1..1000)}, CABA, Buenos Aires",
+    "Av. Santa Fe #{rand(1..1000)}, CABA, Buenos Aires",
+    "#{rand(1..1000)} Bartolomé Mitre, CABA, Buenos Aires",
+    "Av. Federico Lacroze #{rand(1..1000)}, CABA, Buenos Aires",
+    "Av. Luis María Campos #{rand(1..1000)}, CABA, Buenos Aires",
+    "Acevedo #{rand(1..1000)}, CABA, Buenos Aires",
+    "Murillo #{rand(1..1000)}, CABA, Buenos Aires",
+    "Guardia Vieja #{rand(1..1000)}, CABA, Buenos Aires",
+    "Paraguay #{rand(1..1000)}, CABA, Buenos Aires",
+    "Guatemala #{rand(1..1000)}, CABA, Buenos Aires",
+    "Malabia #{rand(1..1000)}, CABA, Buenos Aires",
+    "Jorge Luis Borges #{rand(1..1000)}, CABA, Buenos Aires",
+    "Thames #{rand(1..1000)}, CABA, Buenos Aires"]
 }
 
 MODEL = {
@@ -31,6 +48,7 @@ MODEL = {
 }
 
 LICENSE_TYPE = %w(A1 A2 A3)
+
 
 USERS = {
   owners: [
@@ -60,26 +78,50 @@ USERS = {
   ]
 }
 
+
+
 REVIEWS = {
   comments: [
-'Awesome scooter, the highlight of my trip!',
-'Happy scooting-memories were made. Highly recommended!',
-'Scooting at it should be, what a great day.',
-'The owner was very friendly to explain me how to use the scooter.',
-'Owner gave me some advice on what scenic routes to take when riding downtown.',
-'Cool scooter, very well maintained.',
-'The best way to discover a city.',
-'Enjoyed the scoot around with my girlfriend.',
-'A safe and unqiue way to explore downtown.',
-'We had a great time scooting around!',
-'Great scooting experience. Only things was low fuel.'
-]
+    'Awesome scooter, the highlight of my trip!',
+    'Happy scooting-memories were made. Highly recommended!',
+    'Scooting at it should be, what a great day.',
+    'The owner was very friendly to explain me how to use the scooter.',
+    'Owner gave me some advice on what scenic routes to take when riding downtown.',
+    'Cool scooter, very well maintained.',
+    'The best way to discover a city.',
+    'Enjoyed the scoot around with my girlfriend.',
+    'A safe and unqiue way to explore downtown.',
+    'We had a great time scooting around!',
+    'Great scooting experience. Only things was low fuel.'
+  ]
 }
 
 USERS[:renters].each do |renter|
   renter = User.create!(renter)
+  # renter.photo.attach()
 end
 
+# Manually seed renter with photos
+
+#1
+  photo = URI.open("https://avatars1.githubusercontent.com/u/35240578?v=4")
+  renter1 = User.create!(first_name: "Hernan" , last_name: "Kina", email: "newhernan@gmail.com" , password: 12345678 )
+  renter1.photo.attach(io: photo, filename: "newhernan.jpeg", content_type: 'image/jpeg')
+
+#2
+  photo2 = URI.open("https://avatars0.githubusercontent.com/u/36309895?v=4")
+  renter2 = User.create!(first_name: "Thomas" , last_name: "Holder", email: "newthomas@gmail.com" , password: 12345678 )
+  renter2.photo.attach(io: photo2, filename: "newthomas.jpeg", content_type: 'image/jpeg')
+
+#3
+  photo3 = URI.open("https://avatars2.githubusercontent.com/u/30577676?v=4")
+  renter3 = User.create!(first_name: "Hank" , last_name: "Hng", email: "newhank@gmail.com" , password: 12345678 )
+  renter3.photo.attach(io: photo3, filename: "newhank.jpeg", content_type: 'image/jpeg')
+
+#4
+  # photo4 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1578932457/vw1y2j5jidn3chpxxbrx.jpg")
+  # renter4 = User.create!(first_name: "Julius" , last_name: "Ahlert", email: "newjulius@gmail.com" , password: 12345678 )
+  # renter4.photo.attach(io: photo, filename: "newjulies.jpeg", content_type: 'image/jpeg')
 
 USERS[:owners].each do |owner_info|
   owner = User.create!(owner_info)
@@ -94,16 +136,11 @@ USERS[:owners].each do |owner_info|
     scooter.year = rand(2000..2020)
     scooter.price_per_day = rand(10..150)
     scooter.owner = owner
-    file = URI.open("https://source.unsplash.com/1600x900/?scooter&#{scooter.brand}")
+    file = URI.open("https://source.unsplash.com/900x600/?scooter&#{scooter.brand}")
     scooter.photo.attach(io: file, filename: "#{rand(1..999)}.jpeg", content_type: 'image/png')
     scooter.save!
 
-
-
-
-
-
-    4.times do
+    3.times do
       review = Review.new()
       review.comment = REVIEWS[:comments].sample
       review.rating = rand(1..5)
