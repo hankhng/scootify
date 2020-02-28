@@ -37,7 +37,7 @@
   <div class="cards flex-grow-1">
     <% @scooters.each do |scooter| %>
     <div class="card-wrapper">
-      <div class="card rounded">
+      <div class="card rounded scale">
         <%= link_to scooter_path(scooter) do %>
           <% if scooter.photo.attached? %>
              <%= cl_image_tag scooter.photo.key, style:"height: 180px; width: 320px; object-fit: cover;", class:"card-img-top :width=>70 :height=>20 :crop=>'scale'"%>
