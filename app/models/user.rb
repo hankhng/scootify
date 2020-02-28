@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  has_one_attached :photo
   # validates :license_type, presence: true, if: :user_is_renter?
 
   # def user_is_renter?
