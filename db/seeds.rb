@@ -100,6 +100,9 @@ USERS[:owners].each do |owner_info|
 
 
 
+
+
+
     4.times do
       review = Review.new()
       review.comment = REVIEWS[:comments].sample
