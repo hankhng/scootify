@@ -1,30 +1,33 @@
+<div class="row justify-content-center text-center">
 
-<%= simple_form_for([@scooter, @booking]) do |f| %>
-<%= f.error_notification %>
-<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= simple_form_for([@scooter, @booking]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<div class="form-inputs">
-  <%= f.input :start_date, as: :string, required: false, input_html: {id: "range_start"} %>
-  <%= f.input :end_date, as: :string, required: false, input_html: {id: "range_end"} %>
-  <%= f.input :booking_price, as: :hidden, required: false %>
-  <%= f.label :price_per_day %>
-  <li class="list-group-item">$<%= @scooter.price_per_day %></li>
-  <br>
+  <div class="form-inputs">
+  <h1>Create new booking</h1>
+    <%= f.input :start_date, as: :string, required: false, input_html: {id: "range_start"} %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {id: "range_end"} %>
+    <%= f.input :booking_price, as: :hidden, required: false %>
+    <%= f.label :price_per_day %>
+    <li class="list-group-item">$<%= @scooter.price_per_day %></li>
+    <br>
 
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Leave a message</span>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Leave a message</span>
+      </div>
+      <textarea class="form-control" aria-label="With textarea"></textarea>
     </div>
-    <textarea class="form-control" aria-label="With textarea"></textarea>
+    <br>
+
+    <h2 class="mt-2 mb-4">Total Price:<span id="totalPrice"> </span> </h2>
   </div>
-  <br>
 
-  <h2 class="mt-2 mb-4">Total Price:<span id="totalPrice"> </span> </h2>
+  <div class="form-actions">
+    <%= f.button :submit, value = 'Confirm booking', class: "btn btn-warning" %>
+  </div>
+  <% end %>
+
+
 </div>
-
-<div class="form-actions">
-  <%= f.button :submit, value = 'Confirm booking', class: "btn btn-warning" %>
-</div>
-<% end %>
-
-
