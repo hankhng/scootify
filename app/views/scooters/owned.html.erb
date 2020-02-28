@@ -1,3 +1,7 @@
+<%= link_to scooters_path do %>
+<i class="fas fa-chevron-circle-left ml-3 mt-3 exit-button" style="font-size: 48px;"></i>
+<% end %>
+
 <div class="container">
    <% if @scooters.empty? %>
   <h3 class="my-3">It looks like you don't have any scooters yet, <%= current_user.first_name%></h3>
@@ -9,7 +13,7 @@
 
 
   <% else %>
-  <div class="text-center">
+  <div class="text-center mb-3">
     <h1>My owned scooters</h1>
   </div>
 
@@ -31,7 +35,7 @@
         </div>
         <div>
           <%= link_to "Edit", edit_scooter_path(scooter), class:"btn btn-sm btn-outline-secondary" %>
-          <%= link_to 'Delete', scooter_path(scooter), method: :delete, class:"btn btn-sm btn-outline-secondary ml-3", data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Delete', scooter_path(scooter), method: :delete, class:"btn btn-sm btn-outline-secondary ml-1 mr-5", data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
     </div>
