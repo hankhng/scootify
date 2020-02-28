@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
    @markers = [{
     lat: @booking.scooter.latitude,
     lng: @booking.scooter.longitude,
+    image_url: helpers.asset_url('scooter1.png')
   }]
 end
 
