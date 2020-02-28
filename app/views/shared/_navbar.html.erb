@@ -33,6 +33,7 @@
           </div>
         </li>
       <% end %>
+
       <li class="nav-item dropdown ml-3 d-flex">
         <% if user_signed_in? %>
             <div><p class="m-2"><%= current_user.email %></p></div>
@@ -40,7 +41,7 @@
               <%= cl_image_tag current_user.photo.key,class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%#= image_tag "avatar.png", class: "avatar dropdown-toggle"%>
-              <%= cl_image_tag "avatar.png",class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag "https://img.icons8.com/officel/40/000000/avatar.png",class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
             <% end %>
         <% else %>
