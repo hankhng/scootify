@@ -98,6 +98,8 @@ USERS[:owners].each do |owner_info|
     scooter.photo.attach(io: file, filename: "#{rand(1..999)}.jpeg", content_type: 'image/png')
     scooter.save!
 
+
+
     4.times do
       review = Review.new()
       review.comment = REVIEWS[:comments].sample
