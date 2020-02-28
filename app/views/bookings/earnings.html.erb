@@ -27,7 +27,7 @@
      <tr class="<%= index.even? ? 'bg-light' : '' %>">
       <th scope="row"><%= booking.id %></th>
       <td><%= booking.scooter.brand %> - <%= booking.scooter.model %></td>
-      <td>$<%= booking.booking_price %>,-</td>
+      <td>$<%= booking.booking_price %></td>
       <td><%= booking.start_date.strftime("%e %b %Y ")%></td>
       <td><%= booking.end_date.strftime("%e %b %Y ")%></td>
       <td><%= booking.renter.first_name %></td>
