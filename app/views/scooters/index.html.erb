@@ -3,24 +3,34 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1538895490524-0ded232a96d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
   <div class="container">
     <div class="text-center">
-      <% if @destination %>
-        <h1>Lets Scoot in </h1>
-        <h1><%= @destination %> !</h1>
-      <% else %>
-        <h1>Lets Scoot!</h1>
-      <% end %>
+      <h1 class="banner-title">Scootify the town! </h1>
       <p>
         <span id="banner-typed-text"></span>
       </p>
 
-    <form class="form-inline justify-content-center">
-      <input id="searchbox" class="form-control mr-sm-2 text-left" type="search" placeholder="Try 'Palermo'" aria-label="Search" name="destination">
+    <form class="form-inline justify-content-center my-5">
+      <input id="searchbox" class="form-control mr-sm-2 text-left" type="search" placeholder="Try belgrano" aria-label="Search" name="destination">
       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
     </form>
+
+    <% if @destination && @scooters.any? %>
+        <p class="banner-title">Oki dokiee. Lets Scoot in <em><%= @destination %>!</em> </p>
+    <% else %>
+        <p class="banner-title"> Sorry, we currently have no scooters on the searched location. Scootify coming soon to your area :)</p>
+      <% end %>
 
     </div>
   </div>
 </div>
+
+  <%# if @scooters.empty? %>
+   <!--  <h4 class="my-2 text-center"> Sorry! We currently have no scooters on the searched location. <br> Coming soon Scootify will land in your area!</h4> -->
+  <%# else %>
+  <%# end %>
+<% if @destination && @scooters.any? %>
+  <%flash[:alert] = "We have found #{@scooters.count(:id)} scooters in your searched area! " %>
+   <% else %>
+<% end %>
 
 <div class="d-block d-lg-flex">
 
@@ -29,11 +39,11 @@
     <div class="card-wrapper">
       <div class="card rounded">
         <%= link_to scooter_path(scooter) do %>
-        <% if scooter.photo.attached? %>
-        <%= cl_image_tag scooter.photo.key, style:"height: 180px; width: 320px; object-fit: cover;", class:"card-img-top :width=>70 :height=>20 :crop=>'scale'"%>
-        <% else %>
-        <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%><%=scooter.model%>}"class="card-img-top" alt="scooter-img" style="height: 180px; width: 320px; object-fit: cover;">
-        <% end %>
+          <% if scooter.photo.attached? %>
+             <%= cl_image_tag scooter.photo.key, style:"height: 180px; width: 320px; object-fit: cover;", class:"card-img-top :width=>70 :height=>20 :crop=>'scale'"%>
+          <% else %>
+            <img src="https://source.unsplash.com/1600x900/?scooter&${<%=scooter.brand%><%=scooter.model%>}"class="card-img-top" alt="scooter-img" style="height: 180px; width: 320px; object-fit: cover;">
+          <% end %>
         <% end %>
         <div class="card-body d-flex align-items-top justify-content-between my-0 p-3">
           <div class="card-text">
@@ -53,7 +63,6 @@
             </div>
           </div>
         </div>
-
         <!-- <div class="text-center">
           <a><%#= link_to "View Scooter", scooter_path(scooter), class:"btn btn-light px-4 my-3", style:"font-size: 14px" %></a>
         </div> -->
@@ -61,8 +70,12 @@
     </div>
     <% end %>
   </div>
+    <% if @scooters.empty? %>
+    <% else %>
+        <div id="mapbox" style="width: 100%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <% end %>
+  </div>
 
-  <div id="mapbox" style="width: 100%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
 
 
