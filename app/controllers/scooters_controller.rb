@@ -5,7 +5,7 @@ class ScootersController < ApplicationController
   # GET /scooters
   def index
     if params[:destination].present?
-      @scooters = policy_scope(Scooter).near(params[:destination], 10)
+      @scooters = policy_scope(Scooter).near(params[:destination],3)
       @destination = params[:destination]
     else
       @scooters = policy_scope(Scooter)
