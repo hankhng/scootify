@@ -84,7 +84,7 @@ end
 USERS[:owners].each do |owner_info|
   owner = User.create!(owner_info)
 
-  3.times do
+  2.times do
     scooter = Scooter.new()
     scooter.brand = SCOOTER[:brand].sample
     scooter.transmission = SCOOTER[:transmission].sample
@@ -98,7 +98,7 @@ USERS[:owners].each do |owner_info|
     scooter.photo.attach(io: file, filename: "#{rand(1..999)}.jpeg", content_type: 'image/png')
     scooter.save!
 
-    5.times do
+    4.times do
       review = Review.new()
       review.comment = REVIEWS[:comments].sample
       review.rating = rand(1..5)
@@ -107,18 +107,18 @@ USERS[:owners].each do |owner_info|
       review.save!
     end
 
-    rand(5..10).times do
+    rand(3..5).times do
       # n = 0
       booking = Booking.new()
       if Booking.last.nil?
-        start_date = Date.today + rand(5..15).days
+        start_date = Date.today + rand(-15..15).days
       elsif scooter == Booking.last.scooter
-        start_date = Booking.last.end_date + rand(5..15).days
+        start_date = Booking.last.end_date + rand(-15..15).days
       else
-        start_date = Date.today + rand(5..15).days
+        start_date = Date.today + rand(-15..15).days
       end
       booking.start_date = start_date
-      booking.end_date = booking.start_date + rand(1..30).days
+      booking.end_date = booking.start_date + rand(-30..30).days
       booking.scooter = scooter
       # byebug
       booking.booking_price = scooter.price_per_day * TimeDifference.between(booking.start_date, booking.end_date).in_days
