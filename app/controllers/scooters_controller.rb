@@ -20,7 +20,7 @@ class ScootersController < ApplicationController
         lat: scooter.latitude,
         lng: scooter.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { scooter: scooter }),
-        image_url: helpers.asset_url('scooter.jpg')
+        image_url: helpers.asset_url('scooter1.png')
       }
     end
   end
