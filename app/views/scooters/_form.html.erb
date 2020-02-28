@@ -5,7 +5,6 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs">
-      <h1>Editing Scooter</h1>
       <%= f.input :brand %>
       <%= f.input :model %>
       <%= f.input :transmission, as: :radio_buttons, collection: %w(manual automatic) %>
