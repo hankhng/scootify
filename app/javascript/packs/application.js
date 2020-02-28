@@ -9,6 +9,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 /*import { injectCoordinates } from '../plugins/init_mapbox';
 import { injectMap } from '../plugins/init_mapbox';*/
 
+$(".alert" ).fadeOut(5000);
 
 initMapbox();
 loadDynamicBannerText();
