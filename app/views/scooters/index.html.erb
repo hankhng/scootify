@@ -59,7 +59,7 @@
               <% scooter.reviews.each do |review| %>
               <% ratings << review.rating %>
               <% end %>
-              <span><i class="fas fa-star text-warning"></i> <%= average = ratings.sum / ratings.size.to_f %></span>
+              <span><i class="fas fa-star text-warning"></i> <%= average = (ratings.sum / ratings.size.to_f).round(1) %></span>
             </div>
           </div>
         </div>
