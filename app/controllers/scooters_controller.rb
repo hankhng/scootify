@@ -18,7 +18,9 @@ class ScootersController < ApplicationController
     @markers = @scooters.map do |scooter|
       {
         lat: scooter.latitude,
-        lng: scooter.longitude
+        lng: scooter.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { scooter: scooter }),
+        image_url: helpers.asset_url('scooter.jpg')
       }
     end
   end
@@ -28,9 +30,10 @@ class ScootersController < ApplicationController
     # @scooter = Scooter.find(params[:id])
      # @scooter = Scooter.geocoded #returns scooters with coordinates
      @marker = [{
-        lat: @scooter.latitude,
-        lng: @scooter.longitude,
-      }]
+      lat: @scooter.latitude,
+      lng: @scooter.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { scooter: @scooter }),
+    }]
   end
 
   # GET /scooters/new

@@ -1,0 +1,8 @@
+<h2><%= scooter.brand %></h2>
+<h3><%= scooter.model %></h3>
+<span>
+  <%= cl_image_tag scooter.photo.key, style:"height: 180px; width: 100%; object-fit: cover;", class:"card-img-top :width=>70 :height=>20 :crop=>'scale'"%>
+</span>
+<h4>$ <%= scooter.price_per_day %> per day</h4>
+<p><%= scooter.address %></p>
+<h3><%= link_to "Book now!", scooter_path(scooter) %></h3>
