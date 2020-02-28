@@ -14,7 +14,7 @@
     </form>
 
     <% if @destination && @scooters.any? %>
-        <p class="banner-title">Oki dokiee. Lets Scoot in <em><%= @destination %>!</em> </p>
+        <p class="banner-title">Oki dokiee. Lets Scoot in <em><strong><%= @destination %>!</strong></em> </p>
     <% else %>
         <p class="banner-title"> Sorry, we currently have no scooters on the searched location. Scootify coming soon to your area :)</p>
       <% end %>
