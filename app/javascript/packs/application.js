@@ -9,16 +9,11 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 /*import { injectCoordinates } from '../plugins/init_mapbox';
 import { injectMap } from '../plugins/init_mapbox';*/
 
-// import star
-//import { initStarRating } from '../plugins/init_star_rating';
-
 $(".alert" ).fadeOut(5000);
 
 initMapbox();
 loadDynamicBannerText();
 initAutocomplete();
-//initStarRating();
-
 
 
 // // TODO: Write your JS code in here
