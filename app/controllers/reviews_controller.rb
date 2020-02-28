@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.scooter = @scooter
     if @review.valid?
       @review.save
-      redirect_to scooters_path
+      redirect_to scooter_path(@scooter)
     else
       render :new
     end
